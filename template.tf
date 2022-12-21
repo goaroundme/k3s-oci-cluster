@@ -53,8 +53,8 @@ resource "oci_core_instance_configuration" "k3s_server_template" {
 
       shape = var.compute_shape
       shape_config {
-        memory_in_gbs = "6"
-        ocpus         = "1"
+        memory_in_gbs = "12"
+        ocpus         = "2"
       }
       source_details {
         image_id    = var.os_image_id
@@ -117,13 +117,9 @@ resource "oci_core_instance_configuration" "k3s_worker_template" {
         "user_data"           = data.cloudinit_config.k3s_worker_tpl.rendered
       }
 
-      shape = var.compute_shape
-      shape_config {
-        memory_in_gbs = "6"
-        ocpus         = "1"
-      }
+      shape = "VM.Standard.E2.1.Micro"
       source_details {
-        image_id    = var.os_image_id
+        image_id    = "ocid1.image.oc1.ap-sydney-1.aaaaaaaaauerxyaplt6ig2mgxmxyvsbix6py4tz2oiwk3m76odvzoqv5utwq"
         source_type = "image"
       }
     }

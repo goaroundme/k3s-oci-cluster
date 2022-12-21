@@ -32,6 +32,8 @@ module "k3s_cluster" {
   my_public_ip_cidr         = "144.136.23.46"
   cluster_name              = "ERPOmega"
   environment               = "staging"
+  PATH_TO_PUBLIC_LB_CERT = "/home/ubuntu/public.crt"
+  PATH_TO_PUBLIC_LB_KEY  = "/home/ubuntu/privatekey.pem"
   os_image_id               = "ocid1.image.oc1.ap-sydney-1.aaaaaaaaixfzzk57grv3tsmhl2fsh3a54jnnu7og4ruxp377i77hq2b5f2sq"
   certmanager_email_address = "cwgort@outlook.com"
   source                    = "../"
